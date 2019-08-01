@@ -28,29 +28,58 @@
             </div>
 
             <div class="links">
-                <a href="https://github.com/Izumemori" target="_blank" class="link-item">
+                <div class="link-item">
                     <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
-                </a>
-
-                <a href="https://twitter.com/Izumemori" target="_blank" class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" />
-                </a>
-        
-                <a href="https://keybase.io/Izumemori" target="_blank" class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/keybase.svg" />
-                </a>
-        
-                <div class="link-item discord" onclick="copyTextToClipboard('Izumemori#7920')">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/discord.svg" />
-                    <input type="text" value="Izumemori#7290" id="discord-text">
+                    <a href="https://github.com/Izumemori" target="_blank" class="link-target"></a>
                 </div>
 
-                <a href="mailto:me@izu.re" target="_blank" class="link-item">
+                <div class="link-item">
+                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" />
+                    <a href="https://twitter.com/Izumemori" target="_blank" class="link-target"></a>
+                </div>
+
+                <div class="link-item">
+                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/keybase.svg" />
+                    <a href="https://keybase.io/Izumemori" target="_blank" class="link-target"></a>
+                </div>
+        
+                <div class="link-item">
+                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/discord.svg" />
+                    <span class="copy-text">Izumemori#7920</span>
+                </div>
+
+                <div class="link-item">
                     <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg" />
-                </a>
+                    <a href="mailto:me@izu.re" class="link-target"></a>
+                </div>
+            </div>
+
+            <div class="toast-modal">
+                <span class="text">Copied to clipboard!</span>
             </div>
         </div>
 
         <script src="assets/site.js"></script>
+        <script>
+            var elements = document.getElementsByClassName('link-item');
+            
+            for (var i = 0; i < elements.length; i++)
+                elements[i].addEventListener('click', (event) => {
+                    var target = event.target;
+
+                    if (target.className == "link-target") return; // don't recurse
+
+                    while (target != undefined && target.className != "link-item" && target.nodeName != "BODY")
+                    {
+                        console.log(target);
+                        console.log(target.parentElement);
+                        target = target.parentElement;
+                    }
+
+                    if (target == undefined || target.nodeName == "BODY") return;
+
+                    handleLinkClick(target);
+                });
+        </script>
     </body>
 </html>
