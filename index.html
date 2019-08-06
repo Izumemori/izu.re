@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -15,48 +16,48 @@
     </head>
     <body>
         <div class="content">
-            <div class="header">
+            <header class="header">
                 <span class="text">
                     Jannick Rohling
                 </span>
-            </div>
+            </header>
 
-            <div class="intro">
+            <section class="intro">
                 <span class="text">
                     Software Developer and Freelancer
                 </span>
-            </div>
+            </section>
 
-            <div class="links">
+            <main class="links">
                 <div class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
-                    <a href="https://github.com/Izumemori" target="_blank" class="link-target"></a>
+                    <img alt="Github" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
+                    <a aria-label="github-link" href="https://github.com/Izumemori" target="_blank" rel="noopener" class="link-target"></a>
                 </div>
 
                 <div class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" />
-                    <a href="https://twitter.com/Izumemori" target="_blank" class="link-target"></a>
+                    <img alt="Twitter" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/twitter.svg" />
+                    <a aria-label="twitter-link" href="https://twitter.com/Izumemori" target="_blank" rel="noopener" class="link-target"></a>
                 </div>
 
                 <div class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/keybase.svg" />
-                    <a href="https://keybase.io/Izumemori" target="_blank" class="link-target"></a>
+                    <img alt="Keybase" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/keybase.svg" />
+                    <a aria-label="keybase-link" href="https://keybase.io/Izumemori" target="_blank" rel="noopener" class="link-target"></a>
                 </div>
         
                 <div class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/discord.svg" />
+                    <img alt="Discord" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/discord.svg" />
                     <span class="copy-text">Izumemori#7920</span>
                 </div>
 
                 <div class="link-item">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg" />
-                    <a href="mailto:me@izu.re" class="link-target"></a>
+                    <img alt="Email" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg" />
+                    <a aria-label="email-link" href="mailto:me@izu.re" class="link-target"></a>
                 </div>
-            </div>
+            </main>
 
-            <div class="toast-modal">
+            <section class="toast-modal">
                 <span class="text">Copied to clipboard!</span>
-            </div>
+            </section>
         </div>
 
         <script src="assets/site.js"></script>
@@ -70,11 +71,7 @@
                     if (target.className == "link-target") return; // don't recurse
 
                     while (target != undefined && target.className != "link-item" && target.nodeName != "BODY")
-                    {
-                        console.log(target);
-                        console.log(target.parentElement);
                         target = target.parentElement;
-                    }
 
                     if (target == undefined || target.nodeName == "BODY") return;
 
